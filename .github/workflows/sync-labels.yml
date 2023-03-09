@@ -3,8 +3,8 @@ on:
   push:
     branches:
       - master
-    paths:
-      - .github/workflows/config/labels.yml
+    # paths:
+    #   - .github/workflows/config/labels.yml
 jobs:
   sync:
     runs-on: ubuntu-latest
