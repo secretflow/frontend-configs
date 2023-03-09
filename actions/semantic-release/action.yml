@@ -1,0 +1,76 @@
+inputs:
+  npm-token:
+    type: string
+  github-token:
+    type: string
+  app-id:
+    type: string
+  private-key:
+    type: string
+  build-command:
+    type: string
+  test-command:
+    type: string
+  manual-command:
+    type: string
+  release-config:
+    type: string
+runs:
+  using: composite
+  steps:
+    # prepare repo
+    - uses: secretflow/frontend-configs/actions/prepare-repo@master
+      with:
+        persist-credentials: false
+        test-command: ${{ inputs.test-command }}
+        build-command: ${{ inputs.build-command }}
+        manual-command: ${{ inputs.manual-command }}
+
+    # prepare release config
+    - run: echo "RELEASE_CONFIG=" >> $GITHUB_ENV
+      if: ${{ inputs.release-config == 'false' }}
+      shell: bash
+    - run: echo "RELEASE_CONFIG=@secretflow/semantic-release-config" >> $GITHUB_ENV
+      if: ${{ inputs.release-config == '' }}
+      shell: bash
+    - run: echo "RELEASE_CONFIG=${{ inputs.release-config }}" >> $GITHUB_ENV
+      if: ${{ inputs.release-config != '' && inputs.release-config != 'false' }}
+      shell: bash
+
+    - uses: wow-actions/use-app-token@v2
+      if: ${{ inputs.app-id != '' && inputs.private-key != '' }}
+      with:
+        app_id: ${{ inputs.app-id }}
+        private_key: ${{ inputs.private-key }}
+
+    # - uses: hmarr/debug-action@v2
+
+    - name: Release with App Token
+      if: ${{ env.BOT_TOKEN != '' }}
+      uses: cycjimmy/semantic-release-action@v3
+      with:
+        extends: ${{ env.RELEASE_CONFIG }}
+        extra_plugins: |
+          @semantic-release/changelog
+          @semantic-release/git
+      env:
+        GITHUB_TOKEN: ${{ env.BOT_TOKEN }}
+        NPM_TOKEN: ${{ inputs.npm-token }}
+        NODE_AUTH_TOKEN: ${{ inputs.npm-token }}
+        GIT_AUTHOR_NAME: ${{ env.BOT_NAME }}[bot]
+        GIT_AUTHOR_EMAIL: ${{ env.BOT_NAME }}[bot]@users.noreply.github.com
+        GIT_COMMITTER_NAME: ${{ env.BOT_NAME }}[bot]
+        GIT_COMMITTER_EMAIL: ${{ env.BOT_NAME }}[bot]@users.noreply.github.com
+
+    - name: Release with GitHub Token
+      if: ${{ inputs.github-token != '' }}
+      uses: cycjimmy/semantic-release-action@v3
+      with:
+        extends: ${{ env.RELEASE_CONFIG }}
+        extra_plugins: |
+          @semantic-release/changelog
+          @semantic-release/git
+      env:
+        GITHUB_TOKEN: ${{ inputs.github-token }}
+        NPM_TOKEN: ${{ inputs.npm-token }}
+        NODE_AUTH_TOKEN: ${{ inputs.npm-token }}
