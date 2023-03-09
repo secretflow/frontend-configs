@@ -1,0 +1,39 @@
+{
+  "name": "@secretflow/lint-staged-config",
+  "version": "1.2.1",
+  "description": "Shared lint-staged config for SecretFlow",
+  "keywords": [
+    "lint-staged",
+    "config",
+    "configuration"
+  ],
+  "homepage": "https://github.com/secretflow/frontend-configs",
+  "bugs": {
+    "url": "https://github.com/secretflow/frontend-configs/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com/secretflow/frontend-configs.git",
+    "directory": "packages/lint-staged-config"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "bubkoo",
+    "email": "bubkoo.wy@gmail.com"
+  },
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "peerDependencies": {
+    "eslint": ">=8.1.0",
+    "prettier": ">=2.7.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  }
+}

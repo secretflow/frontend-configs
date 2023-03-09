@@ -1,0 +1,54 @@
+{
+  "name": "@secretflow/prettier-config",
+  "version": "1.5.1",
+  "description": "Shared prettier config for SecretFlow",
+  "keywords": [
+    "prettier",
+    ".prettierrc",
+    ".prettierrc.js",
+    ".prettierrc.cjs",
+    ".prettierrc.json",
+    ".prettierrc.json5",
+    ".prettierrc.yml",
+    ".prettierrc.yaml",
+    ".prettierrc.toml",
+    "prettier.config.js",
+    "prettier.config.cjs",
+    "prettier-config",
+    "config",
+    "configuration"
+  ],
+  "homepage": "https://github.com/secretflow/frontend-configs",
+  "bugs": {
+    "url": "https://github.com/secretflow/frontend-configs/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com/secretflow/frontend-configs.git",
+    "directory": "packages/prettier-config"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "bubkoo",
+    "email": "bubkoo.wy@gmail.com"
+  },
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "dependencies": {
+    "prettier-plugin-organize-imports": "^3.2.2",
+    "prettier-plugin-packagejson": "^2.4.3"
+  },
+  "peerDependencies": {
+    "prettier": ">=2.7.0",
+    "typescript": ">=4.7.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  }
+}

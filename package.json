@@ -1,0 +1,34 @@
+{
+  "private": true,
+  "homepage": "https://github.com/secretflow/frontend-configs",
+  "bugs": {
+    "url": "https://github.com/secretflow/frontend-configs/issues"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "bubkoo",
+    "email": "bubkoo.wy@gmail.com"
+  },
+  "scripts": {
+    "build": "pnpm -r --if-present --filter=./packages/* run build",
+    "clean": "run-s clean:build clean:modules",
+    "clean:build": "pnpm -r --if-present --parallel --filter=./packages/* run clean",
+    "clean:modules": "pnpm -r --parallel exec rimraf node_modules && rimraf node_modules",
+    "lint": "eslint --fix '**/*.{js,jsx,ts,tsx}'",
+    "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
+    "test": "pnpm -r --if-present --filter=./packages/* run test"
+  },
+  "dependencies": {
+    "@secretflow/husky-hooks": "workspace:*",
+    "eslint": "^8.35.0",
+    "is-ci": "^3.0.1",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.8.4",
+    "rimraf": "^4.3.0",
+    "typescript": "^4.9.5"
+  },
+  "packageManager": "pnpm@7.1.9",
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

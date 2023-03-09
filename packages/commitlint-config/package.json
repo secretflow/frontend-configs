@@ -1,0 +1,38 @@
+{
+  "name": "@secretflow/commitlint-config",
+  "version": "1.0.0",
+  "description": "Shared commitlint config for SecretFlow",
+  "keywords": [
+    "commitlint",
+    "config",
+    "configuration"
+  ],
+  "homepage": "https://github.com/secretflow/frontend-configs",
+  "bugs": {
+    "url": "https://github.com/secretflow/frontend-configs/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com/secretflow/frontend-configs.git",
+    "directory": "packages/commitlint-config"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "bubkoo",
+    "email": "bubkoo.wy@gmail.com"
+  },
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "dependencies": {
+    "@commitlint/config-conventional": "^17.4.4"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  }
+}

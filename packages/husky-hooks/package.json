@@ -1,0 +1,53 @@
+{
+  "name": "@secretflow/husky-hooks",
+  "version": "1.0.0",
+  "description": "Shared husky hooks for SecretFlow",
+  "keywords": [
+    "hooks",
+    "husky",
+    "config",
+    "configuration"
+  ],
+  "homepage": "https://github.com/secretflow/frontend-configs",
+  "bugs": {
+    "url": "https://github.com/secretflow/frontend-configs/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com/secretflow/frontend-configs.git",
+    "directory": "packages/husky-hooks"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "bubkoo",
+    "email": "bubkoo.wy@gmail.com"
+  },
+  "type": "module",
+  "files": [
+    "hooks",
+    "scripts"
+  ],
+  "scripts": {
+    "postinstall": "node scripts/install.js"
+  },
+  "dependencies": {
+    "@commitlint/cli": "^17.4.4",
+    "@secretflow/commitlint-config": "*",
+    "@secretflow/lint-staged-config": "*",
+    "cross-spawn": "^7.0.3",
+    "husky": "8.0.3",
+    "lint-staged": "^13.1.2",
+    "npm-run-path": "^5.1.0",
+    "pidtree": "^0.6.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "executableFiles": [
+      "hooks/*"
+    ],
+    "registry": "https://registry.npmjs.org"
+  }
+}
