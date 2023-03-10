@@ -13,9 +13,9 @@ runs:
       with:
         app_id: ${{ inputs.app-id }}
         private_key: ${{ inputs.private-key }}
-      - uses: micnncim/action-label-syncer@v1
-        with:
-          repository: |
-            secretflow/frontend-configs
-          token: ${{ env.BOT_TOKEN }}
-          manifest: ${{ inputs.manifest }}
+    - uses: micnncim/action-label-syncer@v1
+      with:
+        repository: |
+          secretflow/frontend-configs
+        token: ${{ env.BOT_TOKEN }}
+        manifest: ${{ inputs.manifest }}
