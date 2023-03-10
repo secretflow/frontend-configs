@@ -17,6 +17,9 @@
 - name: potential-duplicate
   color: fbca04
   description: This issue or pull request may duplicated with others.
+- name: feature
+  color: 5ebeff
+  description: New feature or request.
 - name: enhancement
   color: 5ebeff
   description: New feature or request.
